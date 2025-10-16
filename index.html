@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css"> 
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" type="image/png" href="img/favicon.ico" sizes="96x96" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>¡Feliz Día de la Madre!</title>
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="index.html" onclick="closeNav()">Inicio</a>
+        <a href="ftmama.html" onclick="closeNav()" style="padding-left: 50px; font-size: 1em;">Fotos con Mamá</a>
+         <a href="Carta.html" onclick="closeNav()" style="padding-left: 50px; font-size: 1em;">Carta Para Mamá</a>
+        <div class="accordion accordion-flush" id="accordionSidenav">
+            <div class="accordion-item" style="border: none; background: none;">
+                <p class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="background-color: transparent; box-shadow: none; padding: 15px 15px 15px 32px; font-size: 1.2em; color: #333;">
+                        Cosas que me encantan de vos
+                    </button>
+                </p>
+                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionSidenav">
+                    <div class="accordion-body" style="padding: 0;">
+                        <a href="Pizza.html" onclick="closeNav()" style="padding-left: 50px; font-size: 1em; border-top: none;">Como Cocinas Pizza</a>
+                        <a href="compromiso.html" onclick="closeNav()" style="padding-left: 50px; font-size: 1em;">Tu compromiso</a>
+                        <a href="postres.html" onclick="closeNav()" style="padding-left: 50px; font-size: 1em;">Tus Postres</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-top">
+        <div class="icon menu">
+            <i class='bx bx-menu' onclick="toggleNav()"></i> 
+        </div>
+        <div class="title">¡Feliz Día de la Madre!</div>
+        <div class="icon heart">
+            <i class="fas fa-heart"></i>
+        </div>
+    </div>
+    
+    <div class="contenedor">
+        
+        <header class="header-pc">
+             <h2>¡Te amo, Mamá!</h2>
+        </header>
+
+        <div class="contenido-principal">
+            
+            <div class="hero-banner" id="inicio"> 
+                <h1>Sos la Mejor Mamá del Mundo</h1>
+                <br>
+                <p>Mamá, muchas gracias por estar en mi vida, te quiero muchisimo. Me enseñaste muchos valores desde que soy chiquita y la verdad es que me hace muy feliz tener una mamá como vos.</p>
+            </div>
+
+            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="img/felisdia.png" class="d-block w-100" alt="Feliz Día Mamá">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="img/banner.png" class="d-block w-100" alt="Te_queremos_mucho">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="img/Banner2.png" class="d-block w-100" alt="Banner2">
+                    </div>
+                </div>
+               <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                 <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                 <span class="visually-hidden">Next</span>
+               </button>
+            </div>
+            <br>
+            <b></b>
+            
+        </div>
+        
+        <footer id="contacto">
+            <p>Te Queremos Mucho</p>
+            <p>¡Gracias por todo!</p>
+        </footer>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

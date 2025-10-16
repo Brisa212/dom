@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css"> 
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="icon" type="image/png" href="img/favicon.ico" sizes="96x96" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <title>¡Feliz Día de la Madre!</title>
+    </head>
+    <body style=
+        "background-color: #f3e5ab; /* Nuevo color crema/vainilla */
+        color: #333;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        overflow-x: hidden; ">
+
+        <div id="mySidenav" class="sidenav">
+        <a href="index.html" onclick="closeNav()">Inicio</a>
+        <a href="ftmama.html" onclick="closeNav()" style="padding-left: 50px; font-size: 1em;">Fotos con Mamá</a>
+        <a href="Carta.html" onclick="closeNav()" style="padding-left: 50px; font-size: 1em;">Carta Para Mamá</a>
+        <div class="accordion accordion-flush" id="accordionSidenav">
+            <div class="accordion-item" style="border: none; background: none;">
+                <p class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="background-color: transparent; box-shadow: none; padding: 15px 15px 15px 32px; font-size: 1.2em; color: #333;">
+                        Cosas que me encantan de vos
+                    </button>
+                </p>
+                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionSidenav">
+                    <div class="accordion-body" style="padding: 0;">
+                        <a href="Pizza.html" onclick="closeNav()" style="padding-left: 50px; font-size: 1em; border-top: none;">Como Cocinas Pizza</a>
+                        <a href="compromiso.html" onclick="closeNav()" style="padding-left: 50px; font-size: 1em;">Tu compromiso</a>
+                        <a href="postres.html" onclick="closeNav()" style="padding-left: 50px; font-size: 1em;">Tus Postres</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    
+    <div class="header-top">
+        <div class="icon menu">
+            <i class='bx bx-menu' onclick="toggleNav()"></i> 
+        </div>
+        <div class="title">¡Feliz Día de la Madre!</div>
+        <div class="icon heart">
+            <i class="fas fa-heart"></i>
+        </div>
+    </div>
+    <div>
+            <br>
+            <br>
+            <br>
+            <h2>Tus Postres</h2>
+            <br>
+            <p style="font-size: 20px; margin-left: 20px; margin-right: 20px;" >Te escribo esta pequeña nota para poder celebrar algo que haces muy bien: ¡tus postres!
+No hay duda de que haces los mejores que robe en mí vida. Tenes un talento especial para la repostería que siempre nos deja deseando una porción más.
+Hay clásicos que dominas a la perfección, como el budín de pan, que siempre sale riquísimo y con ese sabor casero inigualable, y tus chocotortas, que son absolutamente espectaculares.
+Pero lo que realmente me encanta es tu creatividad y audacia . ¡Tus "experimentos" son siempre un éxito! Desde esa torta al revés hasta el impresionante volcán de chocolate, siempre logras sorprender y deleitar a todos.
+Gracias por endulzar la vida con tu arte. ¡Sigue cocinando esas maravillas!</p>
+    </div>
+
+    <div class="animated-postres-prep">
+        <img src="img/harina.png" alt="Saco de Harina" class="harina-img">
+        <img src="img/budin-final.png" alt="Budín de Pan Terminado" class="budin-final-img">
+        <img src="img/licor.png" alt="Botella de Licor" class="licor-img">
+        <img src="img/bowl-mezclando.png" alt="Bowl Mezclando" class="bowl-mezclando-img">
+    </div>
+
+    <footer id="contacto">
+        <p>Te Queremos Mucho</p>
+        <p>¡Gracias por todo!</p>
+        </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="js/main.js"></script>
+    </body>
+</html>

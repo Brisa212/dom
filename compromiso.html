@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css"> 
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="icon" type="image/png" href="img/favicon.ico" sizes="96x96" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <title>¡Feliz Día de la Madre!</title>
+    </head>
+    <body style=
+        "background-color: #f3e5ab; /* Nuevo color crema/vainilla */
+        color: #333;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        overflow-x: hidden; ">
+
+        <div id="mySidenav" class="sidenav">
+        <a href="index.html" onclick="closeNav()">Inicio</a>
+        <a href="ftmama.html" onclick="closeNav()" style="padding-left: 50px; font-size: 1em;">Fotos con Mamá</a>
+         <a href="Carta.html" onclick="closeNav()" style="padding-left: 50px; font-size: 1em;">Carta Para Mamá</a>
+        <div class="accordion accordion-flush" id="accordionSidenav">
+            <div class="accordion-item" style="border: none; background: none;">
+                <p class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="background-color: transparent; box-shadow: none; padding: 15px 15px 15px 32px; font-size: 1.2em; color: #333;">
+                        Cosas que me encantan de vos
+                    </button>
+                </p>
+                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionSidenav">
+                    <div class="accordion-body" style="padding: 0;">
+                        <a href="Pizza.html" onclick="closeNav()" style="padding-left: 50px; font-size: 1em; border-top: none;">Como Cocinas Pizza</a>
+                        <a href="compromiso.html" onclick="closeNav()" style="padding-left: 50px; font-size: 1em;">Tu compromiso</a>
+                        <a href="postres.html" onclick="closeNav()" style="padding-left: 50px; font-size: 1em;">Tus Postres</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    
+    <div class="header-top">
+        <div class="icon menu">
+            <i class='bx bx-menu' onclick="toggleNav()"></i> 
+        </div>
+        <div class="title">¡Feliz Día de la Madre!</div>
+        <div class="icon heart">
+            <i class="fas fa-heart"></i>
+        </div>
+    </div>
+    <div>
+            <br>
+            <br>
+            <br>
+           <h2>Tu Compromiso</h2>
+           <br>
+           <p style="font-size: 20px; margin-left: 20px; margin-right: 20px;" >Hoy, en tu día, quiero celebrar no solo que tengo a una mamá maravillosa, sino también a una mujer increíblemente fuerte y determinada.Si hay algo que siempre me admira de vos es que sos inquebrantable. Sos el ejemplo viviente de que querer es poder. Cuando te propones algo, sea algo grande o chico, lo haces. Vos cuando volves a casa de caminar de Luján estás muerta y te duele todo, pero aunque te duela todo decís "el año que viene voy de vuelta" y vas igual, aunque ya sepas vas a volver a tener ese dolor. Tu vida es la prueba de que cada objetivo que te marcaste, con esfuerzo y perseverancia. Esa cualidad de cumplir tu palabra contigo misma y con los demás es una de las lecciones muy valiosa. Eres la persona que nos lo demuestra día a día.Gracias por ser nuestra inspiración. Gracias por mostrarnos que con enfoque, trabajo duro y esa fe que tenes en vos misma, que siempre se puede llegar a donde uno se lo propone. Que tengas un hermosísimo Día de la Madre.</p>
+        </div>
+
+        <section id="compromiso-objetos" class="animated-section-2">
+            <img src="img/reloj.png" alt="Reloj que simboliza el compromiso con el tiempo" class="reloj-img" loading="lazy">
+            <img src="img/agenda.png" alt="Agenda que simboliza el compromiso con las metas" class="agenda-img" loading="lazy">
+            <img src="img/bonsai.png" alt="Bonsái que simboliza el compromiso a largo plazo" class="bonsai-img" loading="lazy">
+        </section>
+
+        <footer id="contacto">
+            <p>Te Queremos Mucho</p>
+            <p>¡Gracias por todo!</p>
+           </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

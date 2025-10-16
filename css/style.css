@@ -1,0 +1,716 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f3e8; 
+    color: #333;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow-x: hidden; 
+}
+
+.contenedor {
+    max-width: 100%; 
+    margin: 0 auto;
+    padding: 0;
+}
+    
+/* 2. DISEÑO DEL HEADER (Barra superior - versión móvil)  */
+
+.seccion h2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: fit-content; /* Para que el borde no ocupe todo el ancho si no queremos */
+    margin: 0 auto 15px auto; /* Centramos el título */
+}
+
+.cualidades ul {
+    /* Aseguramos que el acordeón ocupe el espacio */
+    padding-top: 10px;  
+    border-top: 1px solid #ffb6c1;  
+    /* Esta línea permite que JS lo oculte si no se usa el acordeón de Bootstrap aquí */
+    display: none;  
+}
+
+.header-top {
+    background-color: #d84343; /* Rojo */
+    color: white; /* Texto blanco (para el título "¡Feliz Día de la Madre!") */
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;  
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;  
+}
+
+.header-top .icon {
+    font-size: 1.8em; 
+    cursor: pointer;
+    width: 40px; 
+    text-align: left;
+}
+
+/* Color específico para el ícono del menú hamburguesa (Boxicon) */
+.header-top .icon.menu i {
+    color: #000000; /* Negro para que contraste con el rojo */
+}
+    
+.header-top .icon.heart {
+    color: white; 
+    font-size: 1.8em;
+    text-align: right;
+    z-index: 200; /* Aseguramos que esté sobre el fondo animado */
+}
+    
+.header-top .title {
+    font-weight: bold;
+    font-size: 1.1em;
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* 3. MENÚ LATERAL DESPLEGABLE (Sidenav)  */
+.sidenav {
+    height: 100%; 
+    width: 0; 
+    position: fixed;
+    z-index: 200; 
+    top: 0;
+    left: 0;
+    background-color: #ffffff; 
+    overflow-x: hidden;
+    transition: 0.5s; 
+    padding-top: 60px; 
+    text-align: left;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.sidenav a {
+    padding: 15px 15px 15px 32px;
+    text-decoration: none;
+    font-size: 1.2em;
+    color: #333;
+    display: block;
+    transition: 0.3s;
+    border-bottom: 1px solid #eee;
+}
+
+.sidenav a:hover {
+    color: #d84343;
+    background-color: #f7f3e8;
+}
+    
+.sidenav .closebtn {
+    display: none; 
+}
+
+.sidenav .accordion {
+    background-color: transparent;
+}
+
+.sidenav .accordion-item {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #eee; /* Mantiene la línea divisoria del menú */
+}
+
+/* 2. Estilizamos el botón para que se parezca a un enlace <a> del menú y ajuste de tamaño */
+.sidenav .accordion-button {
+    background-color: transparent !important;
+    background-image: none !important; /* Aseguramos que la flecha no se oculte */
+    
+    padding: 15px 15px 15px 32px; /* Mismo padding de los enlaces */
+    text-decoration: none;
+    font-size: 1.05em; /* TAMAÑO AJUSTADO: Más pequeño que 1.2em para que no se vea grande */
+    color: #333;
+    display: block;
+    text-align: left;
+    transition: 0.3s;
+    box-shadow: none !important;
+    width: 100%; /* Ocupa todo el ancho disponible */
+}
+
+/* Estilo al pasar el ratón (hover) */
+.sidenav .accordion-button:not(.collapsed):hover,
+.sidenav .accordion-button:hover {
+    color: #d84343;
+    background-color: #f7f3e8 !important; /* Mismo hover de los enlaces */
+}
+
+/* 3. Estiliza el cuerpo desplegable (sub-elementos) */
+.sidenav .accordion-body {
+    padding: 0;
+}
+
+/* Estilo para los sub-enlaces */
+.sidenav .accordion-body a {
+    padding-left: 50px !important;
+    font-size: 1em !important;
+    border-top: none;
+    border-bottom: 1px solid #eee; /* Para separar los sub-enlaces */
+}
+
+/* 4. Estiliza el ícono de flecha (chevron) de Bootstrap */
+.sidenav .accordion-button::after {
+    display: inline-block;
+    width: 1.25em;  
+    height: 1.25em;  
+    margin-left: auto; /* Empuja el ícono a la derecha */
+    content: "";
+    /* Usa la variable de Bootstrap para la flecha */
+    background-image: var(--bs-accordion-btn-icon);  
+    background-repeat: no-repeat;
+    background-size: 1.25em;
+    transition: transform 0.2s ease-in-out;
+    filter: none; /* Asegura que el color no esté filtrado y sea visible */
+    
+    /* Pequeño ajuste para centrar la flecha con el texto */
+    margin-top: -3px;  
+}
+
+.sidenav .accordion-button:not(.collapsed)::after {
+    background-image: var(--bs-accordion-btn-icon);
+    transform: rotate(-180deg); /* Rota cuando está abierto */
+}
+
+/* Aseguramos que el último sub-enlace no tenga borde inferior, 
+    ya que el item del acordeón ya tiene uno. */
+.sidenav .accordion-body a:last-child {
+    border-bottom: none !important;
+}
+
+
+/* -------------------------------------- */
+/* 4. ESTILOS GENERALES DE CONTENIDO       */
+/* -------------------------------------- */
+.contenido-principal {
+    padding-top: 60px;  
+    background-color: #fff;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+    
+.hero-banner {
+    padding: 30px 0;
+    margin-bottom: 20px;
+}
+
+.hero-banner h1 {
+    color: #8b0000;
+    font-size: 2.2em;  
+    margin: 0;
+}
+
+.hero-banner p {
+    color: #555;
+    font-size: 1em;
+    margin-top: 10px;
+}
+
+.seccion {
+    margin-bottom: 30px;
+    padding: 15px 0;
+    padding-top: 70px;  
+    margin-top: -60px;  
+}
+
+.seccion h2 {
+    color: #d84343;
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ffb6c1;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* Cualidades */
+.cualidades ul {
+    list-style: none;
+    padding: 0;
+}
+
+.cualidades li {
+    background-color: #ffe4e1;
+    color: #8b0000;
+    padding: 10px;
+    margin: 8px auto;  
+    max-width: 80%;  
+    border-radius: 20px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+    
+/* Pie de página */
+footer {
+    padding: 20px;
+    background-color: #ffb6c1;
+    color: #8b0000;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 0 0 10px 10px;
+    margin-top: 20px;  
+}
+
+/* -------------------------------------- */
+/* 6. ANIMACIÓN AL SCROLL (PIZZA Y COCINA) - CÓDIGO ANTERIOR */
+/* -------------------------------------- */
+
+.animated-section {
+    position: relative;  
+    height: 300px; /* Altura para el espacio de la animación */
+    overflow: hidden;  
+    margin: 50px auto; /* Centrar la sección horizontalmente y agregar margen */
+    max-width: 90%; /* Limitar el ancho para que los elementos no se extiendan demasiado */
+    display: flex;  
+    justify-content: center; /* Centrar los elementos dentro de esta sección */
+    align-items: center;  
+    opacity: 0;  
+    transform: translateY(50px);  
+    transition: opacity 1s ease-out, transform 1s ease-out;  
+}
+
+.animated-section.visible {
+    opacity: 1;  
+    transform: translateY(0);  
+}
+
+/* Estilos para las imágenes de cocina */
+.pizza-img, .chef-hat-img, .jarra-img, .bowl-spoon-img {
+    position: absolute;  
+    max-width: 150px; /* Mantener el tamaño original o ajustar */
+    width: 25%; /* Usar ancho porcentual para mayor flexibilidad */
+    height: auto;
+    opacity: 0;  
+    transition: opacity 0.5s ease-out;
+    filter: drop-shadow(3px 3px 2px rgba(0,0,0,0.2));  
+}
+
+/* Posicionamiento específico */
+.pizza-img {
+    left: 20%;  
+    bottom: 25%;  
+    transform-origin: bottom center;  
+    transform: translateX(-50%);  
+}
+
+.chef-hat-img {
+    right: 20%;  
+    top: 15%;  
+}
+
+.jarra-img {
+    right: 10%;  
+    bottom: 15%;  
+    transform-origin: top center;  
+}
+
+.bowl-spoon-img {
+    right: 30%;  
+    bottom: 10%;  
+}
+
+/* Animaciones específicas (clase 'animate' agregada por JS) */
+.pizza-img.animate {
+    animation: fanPizza 2s ease-out forwards;
+    opacity: 1;  
+}
+
+.chef-hat-img.animate {
+    animation: dropIn 1s ease-out forwards;
+    opacity: 1;
+    animation-delay: 0.3s;  
+}
+
+.jarra-img.animate {
+    animation: pourJarra 1.5s ease-out forwards;
+    opacity: 1;
+    animation-delay: 0.6s;  
+}
+
+.bowl-spoon-img.animate {
+    animation: slideUp 1s ease-out forwards;
+    opacity: 1;
+    animation-delay: 0.9s;  
+}
+
+/* Keyframes para los movimientos */
+@keyframes fanPizza {
+    0% { transform: translateX(-100px) rotate(0deg); opacity: 0; }
+    50% { transform: translateX(0px) rotate(30deg); opacity: 1; }  
+    100% { transform: translateX(0px) rotate(0deg); opacity: 1; }
+}
+
+@keyframes pourJarra {
+    0% { transform: translateY(100px) rotate(0deg); opacity: 0; }
+    30% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+    60% { transform: translateY(0px) rotate(-30deg); opacity: 1; }  
+    100% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+}
+
+@keyframes dropIn {
+    0% { transform: translateY(-100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideUp {
+    0% { transform: translateY(100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Ajustes Responsivos (Móvil) */
+@media (max-width: 768px) {
+    .animated-section {
+        height: 200px; /* Reducir altura para móvil */
+        max-width: 95%; /* Ocupar más ancho en móvil */
+    }
+    .pizza-img, .chef-hat-img, .jarra-img, .bowl-spoon-img {
+        max-width: 80px; /* Imágenes más pequeñas en móvil */
+        width: 20%; /* Ajuste porcentual */
+    }
+    .pizza-img { left: 15%; bottom: 10%; } /* Ajuste para móvil */
+    .chef-hat-img { right: 15%; top: 5%; } /* Ajuste para móvil */
+    .jarra-img { right: 5%; bottom: 10%; } /* Ajuste para móvil */
+    .bowl-spoon-img { right: 25%; bottom: 5%; } /* Ajuste para móvil */
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+    .animated-section {
+        height: 280px;
+        max-width: 80%;
+    }
+    .pizza-img, .chef-hat-img, .jarra-img, .bowl-spoon-img {
+        max-width: 120px;
+    }
+}
+/* 7. SECCIÓN: OBJETOS DE COMPROMISO (RELOJ, AGENDA, BONSAI) */
+.animated-section-2 {
+    position: relative;  
+    height: 350px;
+    overflow: hidden;  
+    margin: 50px auto;  
+    max-width: 90%;  
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+    opacity: 0;  
+    transform: translateY(50px);  
+    transition: opacity 1s ease-out, transform 1s ease-out;  
+}
+
+.animated-section-2.visible {
+    opacity: 1;  
+    transform: translateY(0);  
+}
+
+.reloj-img, .agenda-img, .bonsai-img {
+    position: absolute;  
+    max-width: 150px;  
+    width: 30%;
+    height: auto;
+    opacity: 0;  
+    transition: opacity 0.5s ease-out;
+    filter: drop-shadow(3px 3px 2px rgba(0,0,0,0.2));  
+}
+
+/* Posicionamiento específico (Desktop) */
+
+.reloj-img {
+    left: 10%; 
+    bottom: 50px;  
+    transform-origin: center;
+}
+
+.agenda-img {
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%); 
+    transform-origin: top center;
+}
+
+.bonsai-img {
+    right: 10%; 
+    bottom: 20px;  
+    transform-origin: bottom center;
+}
+
+/* Animaciones específicas (clase 'animate-2' agregada por JS) */
+
+.reloj-img.animate-2 {
+    animation: bounceReloj 1.5s ease-out forwards;
+    opacity: 1;  
+    animation-delay: 0.1s;  
+}
+
+.agenda-img.animate-2 {
+    animation: dropAgenda 1s ease-out forwards;
+    opacity: 1;
+    animation-delay: 0.4s;  
+}
+
+.bonsai-img.animate-2 {
+    animation: scaleBonsai 1.8s ease-out forwards;
+    opacity: 1;
+    animation-delay: 0.7s;  
+}
+
+/* Keyframes para los nuevos movimientos */
+
+@keyframes bounceReloj {
+    0% { transform: translateY(100px); opacity: 0; }
+    30% { transform: translateY(-10px); opacity: 1; }
+    50% { transform: translateY(0px); }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes dropAgenda {
+    0% { transform: translateY(-100px) translateX(-50%); opacity: 0; }
+    100% { transform: translateY(0) translateX(-50%); opacity: 1; }
+}
+
+@keyframes scaleBonsai {
+    0% { transform: scale(0.5) rotate(-10deg); opacity: 0; }
+    50% { transform: scale(1.1) rotate(5deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+/* AJUSTES RESPONSIVOS para la sección de Compromiso */
+@media (max-width: 768px) {
+    .animated-section-2 {
+        height: 250px;  
+    }
+    .reloj-img, .agenda-img, .bonsai-img {
+        max-width: 100px;  
+        width: 30%;  
+    }
+    
+    .reloj-img { left: 5%; bottom: 30px; }  
+    .agenda-img { top: 20px; left: 50%; }  
+    .bonsai-img { right: 5%; bottom: 10px; }  
+}
+
+/* 8. FONDO ANIMADO DE CORAZONES */
+
+.heart-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; 
+    z-index: 1; 
+    overflow: hidden;
+    opacity: 0.5; 
+}
+
+/* Base del corazón SVG/Icon */
+.heart-background::before {
+    content: "❤️"; 
+    font-size: 20px;
+    color: #d84343;
+    position: absolute;
+    opacity: 0;
+    animation: floatHeart 15s infinite ease-in;
+}
+/* Creamos varios corazones con delays y tamaños diferentes */
+.heart-background::after {
+    content: "💖";
+    font-size: 15px;
+    color: #ffb6c1;
+    position: absolute;
+    opacity: 0;
+    animation: floatHeart 12s infinite ease-out;
+    animation-delay: 5s;
+    left: 20%;
+    top: 70%;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(100vw, -100vh) rotate(360deg); 
+        opacity: 0;
+    }
+}
+/* 9. GALERÍA DE FOTOS (FILAS DE 3) */
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 15px; 
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 15px;
+    z-index: 10; 
+    position: relative;
+}
+
+.foto-item {
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+    transition: none; 
+    cursor: pointer;
+}
+
+.foto-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 1 / 1; 
+    object-fit: cover; 
+    transition: transform 0.5s ease-in-out;
+}
+
+.foto-item img:hover {
+    transform: scale(1.05); 
+}
+
+.foto-item.is-visible {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    transition: opacity 1s ease-out, transform 1s ease-out; 
+}
+
+@media (max-width: 768px) {
+    .galeria-grid {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .galeria-grid {
+        grid-template-columns: 1fr; 
+    }
+}
+
+/* 10. SECCIÓN: OBJETOS DE PREPARACIÓN DE POSTRES (HARINA, BUDÍN, LICOR, BOWL) */
+
+.animated-postres-prep {
+    position: relative;  
+    height: 350px;  
+    overflow: hidden;  
+    margin: 50px auto;  
+    max-width: 90%;  
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+    opacity: 0;  
+    transform: translateY(30px);  
+    transition: opacity 1s ease-out, transform 1s ease-out;  
+}
+
+.animated-postres-prep.visible {
+    opacity: 1;  
+    transform: translateY(0);  
+}
+
+.harina-img, .budin-final-img, .licor-img, .bowl-mezclando-img {
+    position: absolute;  
+    max-width: 150px;  
+    width: 25%;  
+    height: auto;
+    opacity: 0;  
+    transition: opacity 0.5s ease-out;
+    filter: drop-shadow(4px 4px 3px rgba(0,0,0,0.3));  
+}
+
+.harina-img {
+    left: 10%;  
+    top: 50px;  
+    transform-origin: bottom center;
+}
+
+.budin-final-img {
+    right: 15%;  
+    top: 50px;  
+    transform-origin: top center;
+}
+
+.licor-img {
+    left: 30%;  
+    bottom: 30px;  
+    transform-origin: bottom right;
+}
+
+.bowl-mezclando-img {
+    right: 5%;  
+    bottom: 0px;  
+    transform-origin: bottom left;
+}
+
+.harina-img.animate-prep {
+    animation: dropHarina 1.5s ease-out forwards;
+    opacity: 1;  
+    animation-delay: 0.1s;  
+}
+
+.budin-final-img.animate-prep {
+    animation: slideInBudin 1.2s ease-out forwards;
+    opacity: 1;
+    animation-delay: 0.4s;  
+}
+
+.licor-img.animate-prep {
+    animation: rotateLicor 1.5s ease-out forwards;
+    opacity: 1;
+    animation-delay: 0.7s;  
+}
+
+.bowl-mezclando-img.animate-prep {
+    animation: bounceBowl 1.3s ease-out forwards;
+    opacity: 1;
+    animation-delay: 1.0s;  
+}
+
+/* Keyframes para los nuevos movimientos */
+
+@keyframes dropHarina {
+    0% { transform: translateY(-100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInBudin {
+    0% { transform: translateX(100px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes rotateLicor {
+    0% { transform: rotate(-90deg); opacity: 0; }
+    100% { transform: rotate(0deg); opacity: 1; }
+}
+
+@keyframes bounceBowl {
+    0% { transform: translateY(100px); opacity: 0; }
+    30% { transform: translateY(-10px); opacity: 1; }
+    50% { transform: translateY(0px); }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* AJUSTES RESPONSIVOS para la sección de Preparación de Postres */
+@media (max-width: 768px) {
+    .animated-postres-prep {
+        height: 250px;  
+    }
+    .harina-img, .budin-final-img, .licor-img, .bowl-mezclando-img {
+        max-width: 80px;  
+        width: 20%;  
+    }
+    
+    .harina-img { left: 5%; top: 20px; }  
+    .budin-final-img { right: 5%; top: 20px; }  
+    .licor-img { left: 25%; bottom: 10px; }  
+    .bowl-mezclando-img { right: 10%; bottom: 0px; }  
+}
